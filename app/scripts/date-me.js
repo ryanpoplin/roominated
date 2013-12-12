@@ -6,7 +6,7 @@ $(document).ready(function() {
 	setPosition(365)
 
 	setTimeout(function() {
-		$('.slider').css('-webkit-transition', 'all .15s ease')
+		$('.slider').css('-webkit-transition', 'all .125s ease')
 	}, 100)
 
 	var changeMonth = appendNextMonth(daysAndYears(setMonths(moment().format('MMMM'))))
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 function setPosition(num) {
 	$('.d-spacer').css('height',    ((num - 1) *30).toString() + 'px')
-	$('.d-slider').css('top', '-' + ((num) *30).toString() + 'px')
+	$('.d-slider').css('top', '-' + (num       *30).toString() + 'px')
 }
 
 function buttonClick(target, fun, operator) {
@@ -167,6 +167,8 @@ function changeDate(month, dayVal, direction) {
 	$('.next-day').text(nextDayVal)
 	$('.previous-day').text(previousDayVal)
 	$('.current-year').text(month.year)
+	
+	displayDate()
 }
 
 

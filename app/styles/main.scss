@@ -1,66 +1,69 @@
 $month-width: 120px;
 $day-width: 40px;
-$overall-width: 240px;
-$overall-height: 90px;
+$date-overall-width: 320px;
+$date-inner-width: 260px;
+$date-overall-height: 90px;
 
 body {
     margin: 0;
     background: #343434;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+    color: #343434;
+    font-weight: 200;
 }
 
 * {
     vertical-align: top;
 }
 
-h1 {
-    color: #fafafa;
-    text-align: center;
-    font-weight: 100;
-    font-size: 160px;
-    margin: 50px 0 50px;
+.wrapper {
+    width: 320px;
+    height: 480px;
+    background: #fafafa;
+    margin: 100px auto;
+    border: 1px solid red;
+    position: relative;
+    overflow: hidden;
 }
 
-.wrapper {
-    width: 940px;
-    padding: 10px;
-    margin: 15px auto 0;
+.date-selector {
+    width: $date-overall-width;
+    height: $date-overall-height;
+    padding: 10px 0;
+    background: #fafafa;
+    margin: 0 auto;
+}
 
-    .date-selector {
-        width: $overall-width;
-        height: $overall-height;
-        padding: 10px 0;
-        border-radius: 4px;
-        color: #343434;
-        background: #fafafa;
-        margin: 0 auto;
-        font-weight: 200;
+.date-container {
+    overflow: hidden;
+    position: relative;
+    width: $date-inner-width;
+    height: $date-overall-height;
+    margin: 0 auto;
 
-        .slider {
-            position: absolute;
-            top: -30px;
-            text-align: center;
-        }
-
-        .m-slider { width: $month-width; left: 0; }
-        .d-slider { width: $day-width; left: $month-width; }
-
-        .up, .down {
-            height: 30px;
-            display: inline-block;
-            position: absolute;
-            z-index: 10;
-        }
-
-        .month-down { left: 0; top: 0; }
-        .month-up { left: 0; bottom: 0; }
-        .month-down, .month-up { width: $month-width; }
-
-        .days-down { left: 120px; top: 0; }
-        .days-up { left: 120px; bottom: 0; }
-        .days-down, .days-up { width: $day-width; }
+    .slider {
+        position: absolute;
+        top: -30px;
+        text-align: center;
     }
+
+    .m-slider { width: $month-width; left: 0; }
+    .d-slider { width: $day-width; left: 130px; }
+
+    .up, .down {
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        z-index: 10;
+    }
+
+    .month-down { left: 0; top: 0; }
+    .month-up { left: 0; bottom: 0; }
+    .month-down, .month-up { width: $month-width; }
+
+    .days-down { left: 120px; top: 0; }
+    .days-up { left: 120px; bottom: 0; }
+    .days-down, .days-up { width: $day-width; }
 
     .months, .days, .year {
         display: inline-block;
@@ -77,17 +80,40 @@ h1 {
     }
 
     .fade-out {
-        width: $overall-width;
-        height: $overall-height;
+        width: $date-inner-width;
+        height: $date-overall-height;
         position: absolute;
         bottom: 0;
         background: linear-gradient(to bottom, rgba(250,250,250, 1) 0%, rgba(250,250,250, 0) 40%, rgba(250,250,250, 0) 60%, rgba(250,250,250,1) 100%);
     }
 }
 
-.date-container {
-    overflow: hidden;
-    position: relative;
-    height: $overall-height;
+.options-container {
+    position: absolute;
+    top: -61px;
+    z-index: 1;
+    -webkit-transition: top .65s ease;
 }
 
+.bar {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    background: #fafafa;
+}
+
+.current-date {
+    width: inherit;
+    position: absolute;
+    top: 0;
+}
+
+.room {
+    width: inherit;
+    position: absolute;
+    top: 50px;
+    bottom: none;
+    -webkit-transition: all .65s ease;
+}
