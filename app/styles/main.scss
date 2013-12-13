@@ -29,7 +29,8 @@ footer, header, hgroup, menu, nav, section {
     display: block;
 }
 body {
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 100;
+    font-family: 'Lato', sans-serif;
     line-height: 1;
     background-color: #f0f0f0;
 }
@@ -70,7 +71,7 @@ table {
 }
 
 #primary-container {
-    padding-top: 295px;
+    padding-top: 240px;
     position: relative;
     margin: 0 auto;
 
@@ -82,12 +83,14 @@ table {
             box-shadow: 0 3px 3px #c0c0c0;
 
         #primary-header { 
-            padding: 15px 0 15px 20px;
+            padding: 5px 0 15px 20px;
             background-color: #10b5b8;
             border-bottom: 1px solid #e8e8e8;
 
             #logo {
-                font-size: 3em;
+                padding-top: 7px;
+                font-style: italic;
+                font-size: 1.5em;
                 display: inline-block;
             }   
 
@@ -101,6 +104,7 @@ table {
             }
 
             #primary-nav {
+                margin-top: 3px;
                 margin-right: 20px;
                 position: absolute;
                 right: 0;
@@ -111,11 +115,11 @@ table {
 
                     li {
                         border: solid #a0a0a0 1px;
-                        padding: 9px;
+                        padding: 4px;
                         display: inline-block;
                         background-color: #fefefe;
                         border-radius: 3px;
-                        font-size: 1.8em;
+                        font-size: 1.5em;
                         color: #10b5b8;
                     }
 
@@ -169,18 +173,18 @@ table {
                 position: relative;
                 border-radius: 3px;
                 background-color: #fefefe;
-                padding: 35px 15px 35px 15px;
+                padding: 25px 15px 25px 15px;
             
                 #left-arrow {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    margin: 20px 0 0 15px;
-                    padding: 40px 35px 25px 30px;
+                    margin: 15px 0 0 15px;
+                    padding: 20px 28px 25px 20px;
                     display: inline-block;
                     border-radius: 3px;
                     box-shadow: 0 3px 3px #c0c0c0;
-                    background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-left-64.png) no-repeat;
+                    background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-left-48.png) no-repeat;
                 }
 
                 #left-arrow:hover {
@@ -189,7 +193,7 @@ table {
 
                 #room-name {
                     color: #10b5b8;
-                    font-size: 2.5em;
+                    font-size: 1.5em;
                     text-align: center;
                 }
 
@@ -197,12 +201,12 @@ table {
                     position: absolute;
                     top: 0;
                     right: 0;
-                    margin: 20px 15px 0 0;
-                    padding: 40px 35px 25px 30px;
+                    margin: 15px 15px 0 0;
+                    padding: 20px 25px 25px 20px;
                     display: inline-block;
                     border-radius: 3px;
                     box-shadow: 0 3px 3px #c0c0c0;
-                    background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-right-64.png) no-repeat;
+                    background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-right-48.png) no-repeat;
                 }
 
                 #right-arrow:hover {
@@ -215,13 +219,17 @@ table {
 
     }
 
+    .save-time-btn {
+
+    }
+
     .time-slot {
         text-align: center;
         background-color: #fefefe;
         border-bottom: 1px solid #d0d0d0;
-        padding: 30px 20px 30px 20px;
+        padding: 10px 20px 10px 20px;
         cursor: pointer;
-        font-size: 2.4em;
+        font-size: 1.4em;
     }
 
     .time-slot:hover {
@@ -234,7 +242,7 @@ table {
         bottom: 0;
         width: 100%;
         background-color: #10b5b8;
-        padding: 10px 20px 0 20px;
+        padding: 15px 20px 15px 20px;
     }
 
 }

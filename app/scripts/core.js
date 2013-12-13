@@ -59,7 +59,7 @@ $(function() {
 			"4:00 P.M.",
 			"4:30 P.M.",
 			"5:00 P.M.",
-			"5:30 P.M."
+			"EMPTY..."
 		]
 	});
 	
@@ -83,11 +83,11 @@ $(function() {
 
 	var ouyaTimes = ouyaRoom.get("timeSlots");
                     
-    displayTimeSlots(ouyaTimes);
+    displayTimeSlots(ouyaTimes, "time-slot");
     
-    function displayTimeSlots(timeSlots) {
+    function displayTimeSlots(timeSlots, className) {
         for(var i = 0; i < timeSlots.length; i = i + 1) {
-            var str = "<div class='time-slot'>" + 
+            var str = "<div class=" + className + ">" + 
                           "<h3>" + timeSlots[i] + "</h3>" +
                       "</div>" 
             $("#core-container").append(str);
