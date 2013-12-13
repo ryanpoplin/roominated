@@ -1,0 +1,240 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0b1 | 201101 
+   NOTE: WORK IN PROGRESS
+   USE WITH CAUTION AND TEST WITH ABANDON */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+    line-height: 1;
+    background-color: #f0f0f0;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define visible focus styles! 
+:focus {
+    outline: ?????;
+} */
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#primary-container {
+    padding-top: 295px;
+    position: relative;
+    margin: 0 auto;
+
+        #fixed-header-container {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 3px 3px #c0c0c0;
+
+        #primary-header { 
+            padding: 15px 0 15px 20px;
+            background-color: #10b5b8;
+            border-bottom: 1px solid #e8e8e8;
+
+            #logo {
+                font-size: 3em;
+                display: inline-block;
+            }   
+
+            #logo a {
+                color: #fefefe;
+                text-decoration: none;
+            }
+
+            #logo a:hover {
+                // color: #10c5b8;
+            }
+
+            #primary-nav {
+                margin-right: 20px;
+                position: absolute;
+                right: 0;
+                display: inline-block;
+            
+                ul {
+                    list-style-type: none;
+
+                    li {
+                        border: solid #a0a0a0 1px;
+                        padding: 9px;
+                        display: inline-block;
+                        background-color: #fefefe;
+                        border-radius: 3px;
+                        font-size: 1.8em;
+                        color: #10b5b8;
+                    }
+
+                    li:hover {
+                        // background-color: #10c5b8;
+                    }
+
+                }
+
+            }
+
+        }
+
+        #filter-container {
+            background-color: #f1f1f1;
+            padding: 5px 5px 5px 5px;
+            border-bottom: solid #d0d0d0 1px;
+
+            #filter {
+                position: relative;
+                border-radius: 3px;
+                background-color: #fefefe;
+                padding: 45px 15px 45px 15px;
+
+                #filter-submit {
+                    margin: 22px 15px 0 0;
+                    top: 0;
+                    right: 0;
+                    position: absolute;
+                    padding: 9px;
+                    display: inline-block;
+                    background-color: #10b5b8;
+                    border-radius: 3px;
+                    font-size: 1.8em;
+                    color: #fefefe;
+                }
+
+                #filter-submit:hover {
+                    background-color: #10c5b8;
+                }
+
+            }
+
+        }
+
+        #room-selection-container {
+            padding: 5px 5px 5px 5px;
+            background-color: #e0e0e0;
+        
+            #room-nav {
+                position: relative;
+                border-radius: 3px;
+                background-color: #fefefe;
+                padding: 35px 15px 35px 15px;
+            
+                #left-arrow {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    margin: 20px 0 0 15px;
+                    padding: 40px 35px 25px 30px;
+                    display: inline-block;
+                    border-radius: 3px;
+                    box-shadow: 0 3px 3px #c0c0c0;
+                    background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-left-64.png) no-repeat;
+                }
+
+                #left-arrow:hover {
+                    box-shadow: 0 3px 3px #909090;
+                }
+
+                #room-name {
+                    color: #10b5b8;
+                    font-size: 2.5em;
+                    text-align: center;
+                }
+
+                #right-arrow {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    margin: 20px 15px 0 0;
+                    padding: 40px 35px 25px 30px;
+                    display: inline-block;
+                    border-radius: 3px;
+                    box-shadow: 0 3px 3px #c0c0c0;
+                    background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-right-64.png) no-repeat;
+                }
+
+                #right-arrow:hover {
+                    box-shadow: 0 3px 3px #909090;
+                }
+
+            }
+
+        }
+
+    }
+
+    .time-slot {
+        text-align: center;
+        background-color: #fefefe;
+        border-bottom: 1px solid #d0d0d0;
+        padding: 30px 20px 30px 20px;
+        cursor: pointer;
+        font-size: 2.4em;
+    }
+
+    .time-slot:hover {
+        background-color: #eeeeee;
+    }
+
+    #primary-footer {
+        border-top: 1px solid #d0d0d0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #10b5b8;
+        padding: 10px 20px 0 20px;
+    }
+
+}
