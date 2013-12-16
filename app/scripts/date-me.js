@@ -1,7 +1,8 @@
 $(document).ready(function() {
-	var setMonths = monthSetter(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']);
+	// var setMonths = monthSetter(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']);
+	var setMonths = monthSetter(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
 
-	changeDate(daysAndYears(setMonths(moment().format('MMMM')))[0], parseInt(moment().format('D')), +1);
+	changeDate(daysAndYears(setMonths(moment().format('MMM')))[0], parseInt(moment().format('D')), +1);
 
 	setPosition(365)
 
@@ -9,8 +10,8 @@ $(document).ready(function() {
 		$('.slider').css('-webkit-transition', 'all .125s ease')
 	}, 100)
 
-	var changeMonth = appendNextMonth(daysAndYears(setMonths(moment().format('MMMM'))))
-	var changeDay = appendNextNumber(daysAndYears(setMonths(moment().format('MMMM'))))	
+	var changeMonth = appendNextMonth(daysAndYears(setMonths(moment().format('MMM'))))
+	var changeDay = appendNextNumber(daysAndYears(setMonths(moment().format('MMM'))))	
 
 	buttonClick('month-up',   changeMonth, +1)
 	buttonClick('month-down', changeMonth, -1)
@@ -19,8 +20,8 @@ $(document).ready(function() {
 })
 
 function setPosition(num) {
-	$('.d-spacer').css('height',    ((num - 1) *30).toString() + 'px')
-	$('.d-slider').css('top', '-' + (num       *30).toString() + 'px')
+	$('.d-spacer').css('height',    ((num - 1) * $('.slot').height()).toString() + 'px')
+	$('.d-slider').css('top', '-' + (num       * $('.slot').height()).toString() + 'px')
 }
 
 function buttonClick(target, fun, operator) {
@@ -100,8 +101,9 @@ function changeDate(month, dayVal, direction) {
 				dummy: {
 					dayToHide: $('.previous-day').text()
 				},
-				spacerChange: $('.days .previous-dummy').length > 0 ? 0 : 30,
-				sliderChange: -30
+				spacerChange: $('.days .previous-dummy').length > 0 ? 0 : $('.slot').height(),
+				// spacerChange: $('.days .previous-dummy').length > 0 ? 0 : 30,
+				sliderChange: -1 * $('.slot').height()
 			})
 		}
 
@@ -113,8 +115,9 @@ function changeDate(month, dayVal, direction) {
 				dummy: {
 					monthToHide: $('.previous-month').text()
 				},
-				spacerChange: $('.months .previous-dummy').length > 0 ? 0 : 30,
-				sliderChange: -30
+				spacerChange: $('.months .previous-dummy').length > 0 ? 0 : $('.slot').height(),
+				// spacerChange: $('.months .previous-dummy').length > 0 ? 0 : 30,
+				sliderChange: -1 * $('.slot').height()
 			})
 		} 
 	}
@@ -129,8 +132,9 @@ function changeDate(month, dayVal, direction) {
 				dummy: {
 					dayToShow: $('.next-day').text()
 				},
-				spacerChange: $('.days .next-dummy').length > 0 ? 0 : -30,
-				sliderChange: 30,
+				// spacerChange: $('.days .next-dummy').length > 0 ? 0 : -30,
+				spacerChange: $('.days .next-dummy').length > 0 ? 0 : -1*($('.slot').height()),
+				sliderChange: $('.slot').height()
 			})
 		}
 
@@ -142,8 +146,9 @@ function changeDate(month, dayVal, direction) {
 				dummy: {
 					monthToShow: $('.next-month').text()
 				},
-				spacerChange: $('.months .next-dummy').length > 0 ? 0 : -30,
-				sliderChange: 30,
+				// spacerChange: $('.months .next-dummy').length > 0 ? 0 : -30,
+				spacerChange: $('.months .next-dummy').length > 0 ? 0 : -1*($('.slot').height()),
+				sliderChange: $('.slot').height()
 			})
 		}
 	}
@@ -167,8 +172,6 @@ function changeDate(month, dayVal, direction) {
 	$('.next-day').text(nextDayVal)
 	$('.previous-day').text(previousDayVal)
 	$('.current-year').text(month.year)
-	
-	displayDate()
 }
 
 
@@ -230,19 +233,19 @@ function daysAndYears(months) {
 	var months = months.slice()
 	var daysInMonth = [
 		{
-			month: 'January',
+			month: 'Jan',
 			days: 31,
 		},
 		{
-			month: 'February',
+			month: 'Feb',
 			days: 28,
 		},
 		{
-			month: 'March',
+			month: 'Mar',
 			days: 31,
 		},
 		{
-			month: 'April',
+			month: 'Apr',
 			days: 30,
 		},
 		{
@@ -250,31 +253,31 @@ function daysAndYears(months) {
 			days: 31,
 		},
 		{
-			month: 'June',
+			month: 'Jun',
 			days: 30,
 		},
 		{
-			month: 'July',
+			month: 'Jul',
 			days: 31,
 		},
 		{
-			month: 'August',
+			month: 'Aug',
 			days: 31,
 		},
 		{
-			month: 'September',
+			month: 'Sep',
 			days: 30,
 		},
 		{
-			month: 'October',
+			month: 'Oct',
 			days: 31,
 		},
 		{
-			month: 'November',
+			month: 'Nov',
 			days: 30,
 		},
 		{
-			month: 'December',
+			month: 'Dec',
 			days: 31,
 		}
 	]
@@ -291,7 +294,7 @@ function daysAndYears(months) {
 
 	// check leap year
 	var feb = _.find(newDays, function(month) {
-		return month.month === 'February'
+		return month.month === 'Feb'
 	})
 
 	feb.days = moment([feb.year]).isLeapYear() ? 29 : 28;
@@ -322,7 +325,7 @@ function determineYear(year) {
 
 	return function(month) {
 
-		if (month === 'December') {
+		if (month === 'Dec') {
 			year = moment().add('years', 1).format('YYYY');
 			return moment().get('years')
 		}

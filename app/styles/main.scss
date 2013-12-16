@@ -1,15 +1,18 @@
-$month-width: 120px;
+$month-width: 40px;
 $day-width: 40px;
 $date-overall-width: 320px;
-$date-inner-width: 260px;
-$date-overall-height: 90px;
+$date-inner-width: 125px;
+
+$slot-height: 25px;
+$date-overall-height: $slot-height * 3;
 
 body {
     margin: 0;
     background: #343434;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     color: #343434;
-    font-weight: 200;
+    // font-weight: 200;
 }
 
 * {
@@ -21,17 +24,8 @@ body {
     height: 480px;
     background: #fafafa;
     margin: 100px auto;
-    border: 1px solid red;
     position: relative;
     overflow: hidden;
-}
-
-.date-selector {
-    width: $date-overall-width;
-    height: $date-overall-height;
-    padding: 10px 0;
-    background: #fafafa;
-    margin: 0 auto;
 }
 
 .date-container {
@@ -39,20 +33,20 @@ body {
     position: relative;
     width: $date-inner-width;
     height: $date-overall-height;
-    margin: 0 auto;
+    margin: 10px 20px;
+    display: inline-block;
 
     .slider {
         position: absolute;
-        top: -30px;
+        top: -$slot-height;
         text-align: center;
     }
 
     .m-slider { width: $month-width; left: 0; }
-    .d-slider { width: $day-width; left: 130px; }
+    .d-slider { width: $day-width; left: 40px; }
 
     .up, .down {
-        height: 30px;
-        display: inline-block;
+        height: $slot-height;
         position: absolute;
         z-index: 10;
     }
@@ -61,8 +55,8 @@ body {
     .month-up { left: 0; bottom: 0; }
     .month-down, .month-up { width: $month-width; }
 
-    .days-down { left: 120px; top: 0; }
-    .days-up { left: 120px; bottom: 0; }
+    .days-down { left: 40px; top: 0; }
+    .days-up { left: 40px; bottom: 0; }
     .days-down, .days-up { width: $day-width; }
 
     .months, .days, .year {
@@ -74,25 +68,60 @@ body {
         right: 20px;
     }
 
-    .slot {
-        height: 30px;
-        line-height: 30px;
+}
+
+.fade-out {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: linear-gradient(to bottom, rgba(250,250,250, 1) 0%, rgba(250,250,250, 0) 40%, rgba(250,250,250, 0) 60%, rgba(250,250,250,1) 100%);
+}
+
+.time-selector {
+    height: $date-overall-height;
+    width: 100px;
+    display: inline-block;
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+
+    .hours, .minutes, .colon, .am-pm {
+        width: $day-width;
+        position: absolute;
+        top: 0;
+        text-align: center;
+
+        -webkit-transition: top .125s ease;
     }
 
-    .fade-out {
-        width: $date-inner-width;
-        height: $date-overall-height;
-        position: absolute;
-        bottom: 0;
-        background: linear-gradient(to bottom, rgba(250,250,250, 1) 0%, rgba(250,250,250, 0) 40%, rgba(250,250,250, 0) 60%, rgba(250,250,250,1) 100%);
+    .hours {
+        left: 0;
+        overflow: hidden;
     }
+    .colon { left: 20px; }
+    .minutes { left: $day-width; }
+    .am-pm { left: 60px; }
+
+    .up, .down {
+        height: $slot-height;
+        position: absolute;
+        z-index: 10;
+    }
+
+    .hours-down { left: 0; top: 0; }
+    .hours-up { left: 0; bottom: 0; }
+    .hours-down, .hours-up { width: $month-width; }
+
+    .minutes-down { left: 40px; top: 0; }
+    .minutes-up { left: 40px; bottom: 0; }
+    .minutes-down, .minutes-up { width: $day-width; }
+
 }
 
 .options-container {
-    position: absolute;
-    top: -61px;
-    z-index: 1;
-    -webkit-transition: top .65s ease;
+    position: relative;
 }
 
 .bar {
@@ -104,16 +133,24 @@ body {
     background: #fafafa;
 }
 
-.current-date {
-    width: inherit;
-    position: absolute;
-    top: 0;
+.slot {
+    height: $slot-height;
+    line-height: $slot-height;
 }
 
-.room {
-    width: inherit;
-    position: absolute;
-    top: 50px;
-    bottom: none;
-    -webkit-transition: all .65s ease;
+.logo, .room {
+    color: #fafafa;
+    background: rgb(109, 27, 27);
 }
+
+.selected {
+    width: 90%;
+    height: 22px;
+    margin: 0 5%;
+    border: 1px solid rgb(109, 27, 27);
+    border-radius: 3px;
+    position: absolute;
+    top: 36px;
+}
+
+

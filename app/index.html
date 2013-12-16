@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
         <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <!--[if lt IE 10]>
@@ -23,47 +24,82 @@
 
         <div class="wrapper">
 
-            <div class="current-date bar"></div>
+            <div class="bar logo">roominate</div>
 
             <div class="options-container">
 
-                <div class="date-selector">
+                <div class="selected"></div>
 
-                    <div class="date-container">
+                <!-- date -->
 
-                        <div class="slider m-slider">
-                            <div class="months">
-                                <div class="spacer m-spacer"></div>
-                                <div class="slot previous-month"></div>
-                                <div class="slot current-month"></div>
-                                <div class="slot next-month"></div>
-                            </div>
+                <div class="date-container">
+
+                    <div class="slider m-slider">
+                        <div class="months">
+                            <div class="spacer m-spacer"></div>
+                            <div class="slot previous-month"></div>
+                            <div class="slot current-month"></div>
+                            <div class="slot next-month"></div>
                         </div>
+                    </div>
 
-                        <div class="slider d-slider">
-                            <div class="days">
-                                <div class="spacer d-spacer"></div>
-                                <div class="slot previous-day"></div>
-                                <div class="slot current-day"></div>
-                                <div class="slot next-day"></div>
-                            </div>
+                    <div class="slider d-slider">
+                        <div class="days">
+                            <div class="spacer d-spacer"></div>
+                            <div class="slot previous-day"></div>
+                            <div class="slot current-day"></div>
+                            <div class="slot next-day"></div>
                         </div>
+                    </div>
 
-                        <div class="month-down down"></div>
-                        <div class="days-down down"></div>
-                        <div class="month-up up"></div>
-                        <div class="days-up up"></div>
+                    <div class="month-down down"></div>
+                    <div class="days-down down"></div>
+                    <div class="month-up up"></div>
+                    <div class="days-up up"></div>
 
 
-                        <div class="year">
-                            <div class="slot"></div>
-                            <div class="slot current-year"></div>
-                        </div>
-
-                        <div class="fade-out"></div>
+                    <div class="year">
+                        <div class="slot"></div>
+                        <div class="slot current-year"></div>
                     </div>
 
                 </div>
+
+
+                <!-- time -->
+
+                <!-- <div class="time-selector">
+
+                    <div class="hours"></div>
+
+                    <div class="colon">
+                        <div class="slot"></div>
+                        <div class="slot">:</div>
+                        <div class="slot"></div>
+                    </div>
+
+                    <div class="minutes">
+                        <div class="slot"></div>
+                        <div class="slot">00</div>
+                        <div class="slot">30</div>
+                    </div>
+
+                    <div class="am-pm">
+                        <div class="slot"></div>
+                        <div class="slot">am</div>
+                        <div class="slot">pm</div>
+                    </div>
+
+                    <div class="hours-down down"></div>
+                    <div class="minutes-down down"></div>
+                    <div class="am-pm-down down"></div>
+                    <div class="hours-up up"></div>
+                    <div class="minutes-up up"></div>
+                    <div class="am-pm-up up"></div>
+
+                </div> -->
+
+                <div class="fade-out"></div>
 
             </div>
 
@@ -141,7 +177,7 @@
         <!-- build:js scripts/main.js -->
         <script src="scripts/parse.js"></script>
         <script src="scripts/date-me.js"></script>
-        <script src="scripts/interface.js"></script>
+        <script src="scripts/time.js"></script>
         <!-- <script src="scripts/event.js"></script> -->
         <!-- endbuild -->
 </body>
