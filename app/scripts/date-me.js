@@ -223,7 +223,7 @@ function appendNextNumber(data) {
 
 function monthSetter(months) {
 	return function(startingMonth) {
-		return months.slice(months.indexOf(startingMonth)).concat(months.slice(0, months.indexOf(startingMonth)))	
+		return months.slice(months.indexOf(startingMonth)).concat(months.slice(0, months.indexOf(startingMonth)))
 	}
 }
 
@@ -298,8 +298,6 @@ function daysAndYears(months) {
 	})
 
 	feb.days = moment([feb.year]).isLeapYear() ? 29 : 28;
-
-	console.log(associateMonths(newDays))
 
 	return associateMonths(newDays)
 }
