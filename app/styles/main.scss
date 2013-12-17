@@ -1,3 +1,17 @@
+$month-width: 40px;
+$day-width: 40px;
+$date-overall-width: 320px;
+$date-inner-width: 165px;
+
+$slot-height: 25px;
+$date-overall-height: $slot-height * 3;
+
+// $date-trans-fast: all .15s ease;
+// $date-trans-slow: all .4s ease;
+
+$date-trans-fast: all .3s ease;
+$date-trans-slow: all .8s ease;
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0b1 | 201101 
    NOTE: WORK IN PROGRESS
@@ -71,16 +85,22 @@ table {
 }
 
 #primary-container {
-    padding-top: 240px;
+    // padding-top: 240px;
+    width: 320px;
+    height: 480px;
     position: relative;
-    margin: 0 auto;
+    margin: 50px auto;
 
         #fixed-header-container {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
+            // position: absolute;
+            // top: 0;
+            // width: 100%;
+            width: 320px;
             box-shadow: 0 3px 3px #c0c0c0;
+
+            @media (width: 480px) {
+                position: fixed;
+            }
 
         #primary-header { 
             padding: 5px 0 15px 20px;
@@ -140,9 +160,11 @@ table {
 
             #filter {
                 position: relative;
+                height: 28px;
                 border-radius: 3px;
                 background-color: #fefefe;
-                padding: 45px 15px 45px 15px;
+                overflow: hidden;
+                -webkit-transition: $date-trans-slow;
 
                 #filter-submit {
                     margin: 22px 15px 0 0;
@@ -155,6 +177,8 @@ table {
                     border-radius: 3px;
                     font-size: 1.8em;
                     color: #fefefe;
+                    opacity: 0;
+                    -webkit-transition: $date-trans-fast;
                 }
 
                 #filter-submit:hover {
@@ -238,11 +262,143 @@ table {
 
     #primary-footer {
         border-top: 1px solid #d0d0d0;
-        position: fixed;
+        position: absolute;
         bottom: 0;
-        width: 100%;
+        width: 320px;
+        // width: 100%;
         background-color: #10b5b8;
         padding: 15px 20px 15px 20px;
+
+        @media (width: 480px) {
+                position: fixed;
+            }
     }
 
+}
+
+#core-container {
+    @media (min-width: 481px) {
+        height: 238px;
+        overflow: auto;
+    }
+}
+
+
+// date and time pickers
+
+.date-container {
+    overflow: hidden;
+    position: relative;
+    width: $date-inner-width;
+    height: $date-overall-height;
+    margin-top: -22px;
+    margin-left: 80px;
+    display: inline-block;
+    -webkit-transition: $date-trans-slow;
+
+    .slider {
+        position: absolute;
+        top: -$slot-height;
+        text-align: center;
+    }
+
+    .m-slider { width: $month-width; left: 0; }
+    .d-slider { width: $day-width; left: 50px; }
+
+    .up, .down {
+        height: $slot-height;
+        position: absolute;
+        z-index: 10;
+    }
+
+    .month-down { left: 0; top: 0; }
+    .month-up { left: 0; bottom: 0; }
+    .month-down, .month-up { width: $month-width; }
+
+    .days-down { left: 50px; top: 0; }
+    .days-up { left: 50px; bottom: 0; }
+    .days-down, .days-up { width: $day-width; }
+
+    .months, .days, .year {
+        display: inline-block;
+    }
+
+    .year {
+        position: absolute;
+        right: 20px;
+        -webkit-transition: $date-trans-slow;
+    }
+
+}
+
+.fade-out {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: linear-gradient(to bottom, rgba(254, 254, 254, 1) 0%, rgba(254, 254, 254, 0) 40%, rgba(254, 254, 254, 0) 60%, rgba(254, 254, 254,1) 100%);
+}
+
+.time-selector {
+    height: $date-overall-height;
+    width: 100px;
+    display: inline-block;
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+
+    .hours, .minutes, .colon, .am-pm {
+        width: $day-width;
+        position: absolute;
+        top: 0;
+        text-align: center;
+
+        -webkit-transition: top .125s ease;
+    }
+
+    .hours {
+        left: 0;
+        overflow: hidden;
+    }
+    .colon { left: 20px; }
+    .minutes { left: $day-width; }
+    .am-pm { left: 60px; }
+
+    .up, .down {
+        height: $slot-height;
+        position: absolute;
+        z-index: 10;
+    }
+
+    .hours-down { left: 0; top: 0; }
+    .hours-up { left: 0; bottom: 0; }
+    .hours-down, .hours-up { width: $month-width; }
+
+    .minutes-down { left: 40px; top: 0; }
+    .minutes-up { left: 40px; bottom: 0; }
+    .minutes-down, .minutes-up { width: $day-width; }
+
+}
+
+.options-container {
+    position: relative;
+}
+
+.slot {
+    height: $slot-height;
+    line-height: $slot-height;
+}
+
+.selected {
+    height: 24px;
+    width: 211px;
+    margin-left: 30px;
+    border: 2px solid rgb(16, 181, 184);
+    border-right: none;
+    border-radius: 3px;
+    position: absolute;
+    top: 35px;
+    opacity: 0;
+    -webkit-transition: $date-trans-fast;
 }

@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
         <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
     </head>
@@ -22,6 +23,39 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
+                <!-- time -->
+
+                <!-- <div class="time-selector">
+
+                    <div class="hours"></div>
+
+                    <div class="colon">
+                        <div class="slot"></div>
+                        <div class="slot">:</div>
+                        <div class="slot"></div>
+                    </div>
+
+                    <div class="minutes">
+                        <div class="slot"></div>
+                        <div class="slot">00</div>
+                        <div class="slot">30</div>
+                    </div>
+
+                    <div class="am-pm">
+                        <div class="slot"></div>
+                        <div class="slot">am</div>
+                        <div class="slot">pm</div>
+                    </div>
+
+                    <div class="hours-down down"></div>
+                    <div class="minutes-down down"></div>
+                    <div class="am-pm-down down"></div>
+                    <div class="hours-up up"></div>
+                    <div class="minutes-up up"></div>
+                    <div class="am-pm-up up"></div>
+
+                </div> -->
 
         <div id="primary-container">
 
@@ -44,6 +78,45 @@
                 <div id="filter-container">
     
                     <div id="filter">
+
+                        <div class="selected"></div>
+
+                        <!-- date -->
+
+                        <div class="date-container">
+
+                            <div class="slider m-slider">
+                                <div class="months">
+                                    <div class="spacer m-spacer"></div>
+                                    <div class="slot previous-month"></div>
+                                    <div class="slot current-month"></div>
+                                    <div class="slot next-month"></div>
+                                </div>
+                            </div>
+
+                            <div class="slider d-slider">
+                                <div class="days">
+                                    <div class="spacer d-spacer"></div>
+                                    <div class="slot previous-day"></div>
+                                    <div class="slot current-day"></div>
+                                    <div class="slot next-day"></div>
+                                </div>
+                            </div>
+
+                            <div class="month-down down"></div>
+                            <div class="days-down down"></div>
+                            <div class="month-up up"></div>
+                            <div class="days-up up"></div>
+
+
+                            <div class="year">
+                                <div class="slot"></div>
+                                <div class="slot current-year"></div>
+                            </div>
+
+                        <div class="fade-out"></div>
+                        </div>
+
     
                         <a href="#"><div id="filter-submit">Go</div></a>
     
@@ -70,7 +143,7 @@
             
             </div>
     
-            <div class="save-time-btn"></div>
+           <!--  <div class="save-time-btn"></div> -->
     
             <div id="core-container">
     
@@ -88,9 +161,62 @@
         
         </div>
 
+        <!-- templates -->
+
+        <script type="text/template" id="show-next-month">
+
+            <div class="months">
+                <div class="spacer m-spacer"></div>
+                <div class="slot next-dummy"    ><%= month.monthToHide   %></div>
+                <div class="slot previous-month"><%= month.previousMonth %></div>
+                <div class="slot current-month" ><%= month.currentMonth  %></div>
+                <div class="slot next-month"    ><%= month.nextMonth     %></div>
+            </div>
+
+        </script>
+
+
+        <script type="text/template" id="show-next-day">
+
+            <div class="days">
+                <div class="spacer d-spacer"></div>
+                <div class="slot next-dummy"  ><%= month.dayToHide   %></div>
+                <div class="slot previous-day"><%= month.previousDay %></div>
+                <div class="slot current-day" ><%= month.currentDay  %></div>
+                <div class="slot next-day"    ><%= month.nextDay     %></div>
+            </div>
+
+        </script>
+
+        <script type="text/template" id="show-previous-month">
+
+            <div class="months">
+                <div class="spacer m-spacer"></div>
+                <div class="slot previous-month"><%= month.previousMonth %></div>
+                <div class="slot current-month" ><%= month.currentMonth  %></div>
+                <div class="slot next-month"    ><%= month.nextMonth     %></div>
+                <div class="slot previous-dummy"><%= month.monthToShow   %></div>
+            </div>
+
+        </script>
+
+        <script type="text/template" id="show-previous-day">
+
+            <div class="days">
+                <div class="spacer d-spacer"></div>
+                <div class="slot previous-day"  ><%= month.previousDay %></div>
+                <div class="slot current-day"   ><%= month.currentDay  %></div>
+                <div class="slot next-day"      ><%= month.nextDay     %></div>
+                <div class="slot previous-dummy"><%= month.dayToShow   %></div>
+            </div>
+
+        </script>
+
+
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.min.js"></script>
+        <script src="bower_components/moment/moment.js"></script>
         <script src="bower_components/underscore/underscore-min.js"></script>
         <script src="bower_components/backbone/backbone-min.js"></script>
         <!-- endbower -->
@@ -107,9 +233,13 @@
         </script>
 
         <!-- build:js scripts/main.js -->
+        <script src="scripts/parse.js"></script>
+        <script src="scripts/core.js"></script>
+        <script src="scripts/date-me.js"></script>
+        <script src="scripts/time.js"></script>
+        <script src="scripts/change-date.js"></script>
         <!-- endbuild -->
 
-        <script src="scripts/core.js"></script>
 
         <!-- build:js scripts/plugins.js -->
         <script src="bower_components/sass-bootstrap/js/affix.js"></script>
